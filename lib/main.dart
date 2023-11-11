@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:insta/firebase_options.dart';
 import 'package:insta/provider/user_provider.dart';
 import 'package:insta/responsive/mobile_screen_layout.dart';
 import 'package:insta/responsive/responsive_layout_screen.dart';
@@ -23,7 +24,9 @@ void main() async {
       ),
     );
   } else {
-    await Firebase.initializeApp();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   }
 
   runApp(const MyApp());
